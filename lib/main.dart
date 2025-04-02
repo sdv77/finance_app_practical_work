@@ -7,8 +7,8 @@ import 'package:hive_flutter/hive_flutter.dart';
 
 void main() async {
   await Hive.initFlutter();
-  Hive.registerAdapter(TransactionAdapter()); // Регистрируем адаптер
-  await Hive.openBox<Transaction>('transactions'); // Открываем коробку для транзакций
+  Hive.registerAdapter(TransactionAdapter());
+  await Hive.openBox<Transaction>('transactions');
 
   runApp(MyApp());
 }
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       title: 'Finance App',
       theme: ThemeData(primarySwatch: Colors.blue),
       home: BlocProvider<FinanceCubit>(
-        create: (context) => FinanceCubit(Hive.box<Transaction>('transactions')), // Создаем FinanceCubit
+        create: (context) => FinanceCubit(Hive.box<Transaction>('transactions')),
         child: FinanceScreen(),
       ),
     );

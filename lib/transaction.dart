@@ -1,6 +1,6 @@
 import 'package:hive_flutter/hive_flutter.dart';
 
-part 'transaction.g.dart'; // Для генерации адаптера Hive
+part 'transaction.g.dart';
 
 @HiveType(typeId: 0)
 class Transaction {
@@ -11,7 +11,7 @@ class Transaction {
   final double amount;
 
   @HiveField(2)
-  final String type; // 'income' или 'expense'
+  final String type;
 
   Transaction({
     required this.title,
